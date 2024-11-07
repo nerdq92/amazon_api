@@ -22,7 +22,7 @@ st.title("Book Search")
 url = st.text_input("Enter a site url")
 
 if st.button("Search"):
-    img_tags = fetch_books_data(url)
+    data, img_tags = fetch_books_data(url)
     st.write(data)
     st.write(img_tags)
     # st.write(data)
