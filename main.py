@@ -13,11 +13,11 @@ def fetch_books_data(url):
     }
     response = requests.get(url,headers=headers)
     data = BeautifulSoup(response.content, 'html.parser')
-    # img_tag = data.find("img", class_="img-responsive mx-auto d-block swiper-lazy")
-    # data_image = img_tag.get("data-image")
-    # alt_text = img_tag.get("alt")
-    # return data_image,alt_text
-    return data
+    img_tag = data.find("img", class_="lazyload img-responsive center-block")
+    data_image = img_tag.get("data-src")
+    alt_text = img_tag.get("alt")
+    return data_image,alt_text
+    # return data
 
 st.title("Book Search")
 url = st.text_input("Enter a site url")
@@ -25,7 +25,8 @@ url = st.text_input("Enter a site url")
 if st.button("Search"):
     # book_title, image_url = fetch_books_data(url)
     # data_image,alt_text = fetch_books_data(url)
-    data = fetch_books_data(url)
-    st.write(data)
+    data_image,alt_text = fetch_books_data(url)
+    st.write(data_image)
+    # st.write(data)
     # st.write(alt_text)
     # st.image('https:'+data_image,width=250)    
