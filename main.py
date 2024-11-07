@@ -23,11 +23,11 @@ st.title("Book Search")
 url = st.text_input("Enter a site url")
 
 if st.button("Search"):
-    img_tags = fetch_books_data(url)
-    st.write(img_tags)
+    img_tags = fetch_books_data(url)    
     random_element = random.choice(img_tags)
-    st.write(random_element.get("data-src"))
     st.write(random_element.get("alt"))
+    st.image(random_element.get("data-src"))
+    
     
     # st.write(data)
     # st.write(alt_text)
