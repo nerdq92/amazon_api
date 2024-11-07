@@ -16,13 +16,14 @@ def fetch_books_data(url):
     img_tags = data.find_all("img", class_="lazyload img-responsive center-block loaded")
     # data_image = img_tag.get("data-src")
     # alt_text = img_tag.get("alt")
-    return img_tags
+    return data, img_tags
 
 st.title("Book Search")
 url = st.text_input("Enter a site url")
 
 if st.button("Search"):
     img_tags = fetch_books_data(url)
+    st.write(data)
     st.write(img_tags)
     # st.write(data)
     # st.write(alt_text)
