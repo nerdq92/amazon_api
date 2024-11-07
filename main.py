@@ -14,8 +14,8 @@ def fetch_books_data(url):
     response = requests.get(url,headers=headers)
     data = BeautifulSoup(response.content, 'html.parser')
     img_tags = data.find_all("img", class_="lazyload img-responsive cente")
-    data_image = img_tag.get("data-src")
-    alt_text = img_tag.get("alt")
+    # data_image = img_tag.get("data-src")
+    # alt_text = img_tag.get("alt")
     return img_tags
     # return data
 
