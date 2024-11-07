@@ -17,14 +17,11 @@ def fetch_books_data(url):
     # data_image = img_tag.get("data-src")
     # alt_text = img_tag.get("alt")
     return img_tags
-    # return data
 
 st.title("Book Search")
 url = st.text_input("Enter a site url")
 
 if st.button("Search"):
-    # book_title, image_url = fetch_books_data(url)
-    # data_image,alt_text = fetch_books_data(url)
     img_tags = fetch_books_data(url)
     st.write(img_tags)
     # st.write(data)
