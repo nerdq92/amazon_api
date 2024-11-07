@@ -2,6 +2,7 @@ import streamlit as st
 from bs4 import BeautifulSoup
 import requests
 import json
+import random
 
 def fetch_books_data(url):
     headers = {
@@ -16,15 +17,17 @@ def fetch_books_data(url):
     img_tags = data.find_all("img", class_="lazyload img-responsive center-block")
     # data_image = img_tag.get("data-src")
     # alt_text = img_tag.get("alt")
-    return data, img_tags
+    return img_tags
 
 st.title("Book Search")
 url = st.text_input("Enter a site url")
 
 if st.button("Search"):
-    data, img_tags = fetch_books_data(url)
+    img_tags = fetch_books_data(url)
     st.write(img_tags)
-    st.write(data)
+    random_element = random.choice(img_tags)
+    st.write(random_element.get("data-src")
+    st.write(random_element.get("alt")
     
     # st.write(data)
     # st.write(alt_text)
