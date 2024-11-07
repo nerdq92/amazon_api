@@ -22,8 +22,9 @@ def fetch_open_graph_data(url):
         data_dynamic_image = json.loads(tag['data-a-dynamic-image'])
         title = tag['alt']
         image_url = list(data_dynamic_image.keys())[0]
-    return title, image_url, soup
+    return soup
 try:
-  title, image_url, soup = fetch_open_graph_data('https://www.amazon.in/Complete-Novels-Sherlock-Holmes/dp/8175994312/ref=zg_bs_g_1318054031_d_sccl_1/000-0000000-0000000?psc=1')
+    soup = fetch_open_graph_data('https://www.amazon.in/Complete-Novels-Sherlock-Holmes/dp/8175994312/ref=zg_bs_g_1318054031_d_sccl_1/000-0000000-0000000?psc=1')
+    st.write(soup)
 except:
-  st.write('Error occur')
+    st.write('Error occur')
